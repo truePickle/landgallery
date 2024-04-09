@@ -1,0 +1,26 @@
+.container {
+display: flex;
+    align-items: center;
+    gap: 100px;
+}
+.imgContainer {
+position: relative;
+    flex: 1;
+}
+.img {
+    object-fit: contain;
+}
+.formContainer{
+    flex: 1;
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form input,
+.form textarea {
+    padding:20px;
+
+}

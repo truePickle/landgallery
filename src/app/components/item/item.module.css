@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.top{
+    display: flex;
+}
+.imgContainer {
+    background-color: var(--item-border);
+    width: 80%;
+    height: 290px;
+    position: relative;
+    box-sizing: border-box;
+    border: 10px solid var(--item-border);
+
+}
+.img {
+    object-fit:contain;
+}
+.date {
+    font-size: 12px;
+    transform: rotate(270deg);
+    margin: auto;
+}
+.bottom {
+
+}
+
+.title {
+    width: 90%;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.author{
+    width: 90%;
+    margin-bottom: 20px;
+    font-weight: 300;
+    color: var(--author)
+}
