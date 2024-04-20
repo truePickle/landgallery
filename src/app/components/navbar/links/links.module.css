@@ -22,7 +22,7 @@
         display: none;
     }
     .mobileLinks {
-        background-color: #b6b698;
+        background-color: var(--bg-mobileLinks);
         position: absolute;
         right: 0;
         width: 30%;
