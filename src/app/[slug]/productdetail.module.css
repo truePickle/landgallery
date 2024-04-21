@@ -21,4 +21,61 @@
 }
 .buyContainer{
 
+
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.previewContainer {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.detailsContainer {
+    flex: 2;
+}
+
+.sizeButtons {
+    margin-top: 20px;
+}
+
+.sizeButtons button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+}
+
+.sizeButtons button:hover {
+    background-color: #ccc;
+}
+
+.sizeButtons button.selectedSize {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.buttonsContainer {
+    margin-top: 20px;
+}
+
+.buttonsContainer button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonsContainer button:hover {
+    background-color: #0056b3;
+}
+
+.buttonsContainer button:last-child {
+    margin-right: 0;
 }

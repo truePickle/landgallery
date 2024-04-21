@@ -17,18 +17,11 @@ const Homepage = async () => {
     const item = await getItems()
     return(
         <div className={styles.container}>
-            <div className={styles.item}>
-                <Item/>
-            </div>
-            <div className={styles.item}>
-                <Item/>
-            </div>
-            <div className={styles.item}>
-                <Item/>
-            </div>
-            <div className={styles.item}>
-                <Item/>
-            </div>
+            {items.map(item => (
+                <div className={styles.item} key ={item.id}>
+                    <Item item = {item}/>
+                </div>
+            ))}
         </div>
     )
 }

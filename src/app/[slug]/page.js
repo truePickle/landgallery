@@ -1,48 +1,49 @@
-import Image from "next/image";
-import styles from "./productdetail.module.css"
-import Link from "next/link";
-import {getItem} from "@/lib/data";
+"use client"
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './productdetail.module.css';
+import { getItem } from '@/lib/data';
 
-
-const getData = async (slug)=>{
-    const res = await fetch(`http://localhost:3000/api/item/${slug}`)
-    if(!res.ok){
-        throw new Error("Something went wrong")
-    }
-    return res.json()
-}
-
-// TODO: Add metadata for better search results
-export const generateMetadata = async ({params}) => {
+const ProductDetail = ({ params }) => {
+    const [selectedSize, setSelectedSize] = useState(null);
     const {slug} = params
+    const item = getItem(slug)
+    const handleSizeSelect = (size) => {
+        setSelectedSize(size);
+    };
 
-    const item = await getItem(slug);
-    return {
-        title: item.title,
-        description: item.description
-    }
-}
-const ProductDetail = () =>{
-    return(
+    const handleAddToCart = () => {
+        // Добавить выбранный товар в корзину
+    };
+
+    const handleAddToFavorites = () => {
+        // Добавить выбранный товар в избранное
+    };
+
+    return (
         <div className={styles.container}>
-            <div className={styles.imgContainer}>
-                <Image src="/test.jpg" alt="" fill className={styles.img}/>
+            <div className={styles.previewContainer}>
+                {/* Предпросмотр изображений, можно добавить листание */}
+                {item?.image && (
+                    <Image src={"../public/test.jpg"} alt={item.title} width={300} height={200} />
+                )}
             </div>
-            <div className={styles.textContainer}>
-                <h1>Title</h1>
-                <div>
-                    <span>Author</span>
+            <div className={styles.detailsContainer}>
+                <h1>{item.title}</h1>
+                <p>Author: {item.author}</p>
+
+
+                <div className={styles.buttonsContainer}>
+                    {/* Кнопки для добавления в избранное и корзину */}
+                    <button onClick={handleAddToCart}>Add to Cart</button>
+                    <button onClick={handleAddToFavorites}>Add to Favorites</button>
                 </div>
-                <div>
-                    <span>Size of pic</span>
-                    <button>100x100</button>
-                    <button>50x50</button>
-                </div>
-            </div>
-            <div className={styles.buyContainer}>
-                <Link href="/">Buy</Link>
+                <p>{item.description}</p>
             </div>
         </div>
-    )
-}
-export default ProductDetail
+    );
+};
+
+
+export default ProductDetail;

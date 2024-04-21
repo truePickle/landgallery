@@ -41,6 +41,10 @@ const itemSchema = new mongoose.Schema({
     description:{
         type:String
     },
+    author: {
+        type: String,
+        required: true,
+    },
     availableItemSizes:{
         itemSizes:[{
             width: {

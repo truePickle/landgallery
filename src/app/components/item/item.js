@@ -1,7 +1,7 @@
 import styles from "./item.module.css"
 import Image from "next/image";
 import Link from "next/link";
-const Item = () => {
+const Item = ({item}) => {
     return(
         <div className={styles.container}>
             <div className={styles.top}>
@@ -12,9 +12,9 @@ const Item = () => {
             </div>
 
             <div className={styles.bottom}>
-                <h1 className={styles.title}>Title</h1>
-                <p className={styles.author}>Author</p>
-                <Link href ="/detail">DETAILS</Link>
+                <h1 className={styles.title}>{item.title}</h1>
+                <p className={styles.author}>{item.author}</p>
+                <Link href ={`/detail/${item.id}`}>DETAILS</Link>
             </div>
         </div>
     )
