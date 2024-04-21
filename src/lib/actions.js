@@ -16,10 +16,12 @@ export const handleLogout = async () =>{
     await signOut()
 }
 
-export const register = async (formData) =>{
+export const register = async (previousState, formData) =>{
     const {username, email, image, password, passwordRepeat} = Object.fromEntries(formData)
 
-    if (password != passwordRepeat) {return "Passwords do not match."}
+    if (password !== passwordRepeat) {
+        return {error: "Passwords do not match."}
+    }
 
     try {
         await connectToDb()
@@ -27,8 +29,12 @@ export const register = async (formData) =>{
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt)
         if(user){
-            console.log("Username already exists")
-            return "Username already exists";
+            if(user.username === username) {
+                return {error: "Username already exists. Try to login"};
+            } else if (user.email === email) {
+                return {error: "User with this email already exists. Try to login"};
+            }
+            return {error: "User already exists. Try to login"}
         }
         const newUser = new User({
             username: username,
@@ -38,6 +44,7 @@ export const register = async (formData) =>{
         });
         await newUser.save()
         console.log("saved to db")
+        return {success: true}
     } catch (err) {
         console.log(err)
         return {error: "Could not register a new user!"}
@@ -45,7 +52,7 @@ export const register = async (formData) =>{
     }
 }
 
-export const login = async (formData) =>{
+export const login = async (previousState,formData) =>{
     const {username, password} = Object.fromEntries(formData)
 
     try {

@@ -1,0 +1,39 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.form input {
+    padding: 20px;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+}
+
+.form button {
+    padding: 20px;
+    cursor: pointer;
+    background-color: var(--bg-btn);
+    font-weight: bold;
+    color: var(--text-selected);
+    border: none;
+    border-radius: 5px;
+}
+
+.form p {
+    margin: 0;
+    padding: 0;
+}
+
+.error {
+    text-align: left;
+    font-size: 0.8rem;
+    color: var(--text-error);
+    margin-top: 0.2rem;
+}
+
+.error.active {
+    visibility: visible;
+}

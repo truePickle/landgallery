@@ -4,6 +4,7 @@ import Credentials from "next-auth/providers/credentials"
 import {connectToDb} from "@/lib/connectToDb";
 import {User} from "@/lib/models";
 import bcrypt from "bcryptjs";
+import {authConfig} from "@/lib/auth.config";
 
 
 const login = async (credentials) => {
@@ -23,7 +24,7 @@ const login = async (credentials) => {
         return user
     } catch (err) {
         console.log(err)
-        throw new Error("Failed to login: $(err)")
+        throw new Error(`Failed to login: ${err}`)
     }
 }
 export const {
@@ -33,6 +34,7 @@ export const {
     signOut
 } = NextAuth(
     {
+        ...authConfig,
         providers:
             [Github(
                 {
@@ -89,7 +91,6 @@ export const {
                     return true;
                 }
             },
-            
-
+        ...authConfig.callbacks
         }
     });
