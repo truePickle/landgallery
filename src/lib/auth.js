@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Github from "next-auth/providers/github";
-import CredentialsProvider from "next-auth/providers/credentials"
+import Credentials from "next-auth/providers/credentials"
 import {connectToDb} from "@/lib/connectToDb";
 import {User} from "@/lib/models";
 import bcrypt from "bcryptjs";
@@ -10,12 +10,15 @@ const login = async (credentials) => {
     try {
         await connectToDb();
         const user = await User.findOne({username: credentials.username})
+
         if (!user) {
-            throw new Error("Check your username or password")
+            throw new Error("Check your username")
         }
+        console.log(user.password, user.username)
         const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
+        console.log(isPasswordCorrect)
         if (!isPasswordCorrect) {
-            throw new Error("Check your username or password")
+            throw new Error("Check your password")
         }
         return user
     } catch (err) {
@@ -24,7 +27,7 @@ const login = async (credentials) => {
     }
 }
 export const {
-    handlers: {GET, POST},
+    handlers,
     auth,
     signIn,
     signOut
@@ -36,10 +39,12 @@ export const {
                     clientId: process.env.GITHUB_ID,
                     clientSecret: process.env.GITHUB_SECRET
                 }),
-                CredentialsProvider({
+                Credentials({
+
                     async authorize(credentials) {
+                        console.log(credentials)
                         try {
-                            await login(credentials)
+                            return await login(credentials)
                         } catch (err) {
                             return null
                         }
@@ -47,8 +52,23 @@ export const {
                 })
             ],
         callbacks: {
-            async signIn({user, account, profile}) {
+            async signIn({user, account, profile, credentials}) {
                 console.log(user, account, profile)
+                if(account && account.provider === 'credentials'){
+                    try {
+                        const authenticatedUser = await login(credentials);
+                        if (authenticatedUser) {
+                            // Successful authentication
+                            return true;
+                        } else {
+                            // Failed authentication
+                            return false;
+                        }
+                    } catch (error) {
+                        console.error('Authentication error:', error);
+                        return false;
+                    }
+                }
                 if (account.provider === "github") {
                     await connectToDb()
                     try {
@@ -68,6 +88,8 @@ export const {
                     }
                     return true;
                 }
-            }
+            },
+            
+
         }
     });

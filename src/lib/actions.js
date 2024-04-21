@@ -18,13 +18,15 @@ export const handleLogout = async () =>{
 
 export const register = async (formData) =>{
     const {username, email, image, password, passwordRepeat} = Object.fromEntries(formData)
+
     if (password != passwordRepeat) {return "Passwords do not match."}
+
     try {
         await connectToDb()
         const user = await User.findOne({username})
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt)
-        if(user.username === username){
+        if(user){
             console.log("Username already exists")
             return "Username already exists";
         }
@@ -45,14 +47,18 @@ export const register = async (formData) =>{
 
 export const login = async (formData) =>{
     const {username, password} = Object.fromEntries(formData)
+
     try {
-        await connectToDb()
+        console.log(username, password)
         await signIn("credentials", {username, password})
 
 
     } catch (err) {
         console.log(err)
-        return {error: "Could not find a user with this username or password"}
+        if (err.message.includes("CredentialsSignin")){
+            return {error: "Invalid username or password"}
+        }
+        throw  err
 
     }
 }
