@@ -12,9 +12,9 @@ const getData = async ()=>{
 }
 const Homepage = async () => {
     //Fetch data with an API
-    const items = await getData()
+    //const items = await getData()
     //Fetch data without an API
-    const item = await getItems()
+    const items = await getItems()
     return(
         <div className={styles.container}>
             {items.map(item => (
