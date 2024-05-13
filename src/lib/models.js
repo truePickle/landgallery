@@ -1,5 +1,28 @@
 import mongoose from "mongoose";
 
+const addressSchema = new mongoose.Schema({
+    land: {
+        type: String,
+        default: "Deutschland"
+    },
+    city: {
+        type: String,
+        required: true,
+    },
+    zipcode: {
+        type: Number,
+        required: true,
+    },
+    street: {
+        type: String,
+        required: true,
+    },
+    homeNumber: {
+        type: String,
+        required: true,
+    }
+})
+
 const userSchema = new mongoose.Schema({
     username:{
         type:String,
@@ -21,6 +44,9 @@ const userSchema = new mongoose.Schema({
     image: {
         type:String,
     },
+    address: {
+        type: addressSchema
+    },
     isAdmin:{
         type: Boolean,
         default: false,
@@ -32,6 +58,20 @@ const userSchema = new mongoose.Schema({
 
 }, {timestamps: true})
 
+const orderSchema = new mongoose.Schema({
+    userEmail: {
+        type: String,
+        required: true
+    },
+    itemID: {
+        type: String,
+        required: true,
+    },
+    address: {
+        type: addressSchema,
+        required: true
+    }
+},{timestamps: true})
 const itemSchema = new mongoose.Schema({
     title:{
         type:String,
@@ -60,16 +100,21 @@ const itemSchema = new mongoose.Schema({
     image: {
         type:String,
     },
-    userId:{
-        type: String,
-        required: true
-    },
+    images: [{
+        type:String,
+    }],
     slug:{
         type: String,
         required: true,
         unique: true
+    },
+    quantity: {
+        type: Number,
+        required: true,
     }
 }, {timestamps:true})
 
 export  const User = mongoose.models?.User || mongoose.model("User", userSchema)
 export  const Item = mongoose.models?.Item || mongoose.model("Item", itemSchema)
+export  const Order = mongoose.models?.Order || mongoose.model("Order", orderSchema)
+export const Address = mongoose.models?.Address || mongoose.model("Address", addressSchema)

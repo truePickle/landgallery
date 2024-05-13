@@ -56,7 +56,7 @@ export const login = async (previousState,formData) =>{
     const {username, password} = Object.fromEntries(formData)
 
     try {
-        console.log(username, password)
+        //console.log(username, password)
         await signIn("credentials", {username, password})
 
 

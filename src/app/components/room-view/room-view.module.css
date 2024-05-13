@@ -1,0 +1,15 @@
+.imageWrapper {
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+}
+
+.artworkFull {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    background-size: contain; /* Изображение вписывается в размер контейнера */
+    background-repeat: no-repeat; /* Предотвращает повторение фонового изображения */
+    background-position: center; /* Центрирует фоновое изображение */
+}

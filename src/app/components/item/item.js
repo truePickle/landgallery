@@ -6,7 +6,7 @@ const Item = ({item}) => {
         <div className={styles.container}>
             <div className={styles.top}>
                 <div className={styles.imgContainer}>
-                    <Image src="/test.jpg" alt="Test image" fill className={styles.img}/>
+                    <Image src={item.image} alt={item.title} fill className={styles.img}/>
                 </div>
                 <span className={styles.date}>01.01.2024</span>
             </div>
@@ -14,7 +14,7 @@ const Item = ({item}) => {
             <div className={styles.bottom}>
                 <h1 className={styles.title}>{item.title}</h1>
                 <p className={styles.author}>{item.author}</p>
-                <Link href ={`/detail/${item.id}`}>DETAILS</Link>
+                <Link href ={`${item.slug}`}>DETAILS</Link>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@
   --bg-mobileLinks: #b6b698;
   --bg-wrapper: #b6b698;
   --bg-btn:#a9a9a9;
+  --bg-previewContainer: #a9a9a9;
   --text-color: #030303;
   --text-selected:#f5f5dc;
   --text-hover: #8764ff;
@@ -11,6 +12,7 @@
   --author: #030303BA;
   --border: #a9a9a9;
   --item-border: #c0c0c0;
+
 
 }
 body {

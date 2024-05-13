@@ -12,12 +12,10 @@ const login = async (credentials) => {
         await connectToDb();
         const user = await User.findOne({username: credentials.username})
 
-        if (!user) {
-            throw new Error("Check your username")
-        }
-        console.log(user.password, user.username)
+        if (!user) throw new Error("Check your username")
+        //console.log(user.password, user.username)
         const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
-        console.log(isPasswordCorrect)
+        //console.log(isPasswordCorrect)
         if (!isPasswordCorrect) {
             throw new Error("Check your password")
         }
@@ -44,7 +42,7 @@ export const {
                 Credentials({
 
                     async authorize(credentials) {
-                        console.log(credentials)
+                        //console.log(credentials)
                         try {
                             return await login(credentials)
                         } catch (err) {
@@ -55,7 +53,7 @@ export const {
             ],
         callbacks: {
             async signIn({user, account, profile, credentials}) {
-                console.log(user, account, profile)
+                //console.log(user, account, profile)
                 if(account && account.provider === 'credentials'){
                     try {
                         const authenticatedUser = await login(credentials);
@@ -85,7 +83,7 @@ export const {
                             await newUser.save()
                         }
                     } catch (err) {
-                        console.log(err);
+                        console.error(err);
                         return false;
                     }
                     return true;

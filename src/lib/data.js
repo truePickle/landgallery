@@ -12,9 +12,11 @@ export const getItems = async () => {
 }
 
 export const getItem = async (slug) => {
+    console.log("slug in DB " + slug)
     try {
         await connectToDb()
-        return await Item.find({slug})
+
+        return await Item.findOne({slug: slug})
     } catch (error) {
         console.log(error)
         throw new Error("Failed to fetch item!")

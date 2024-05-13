@@ -1,10 +1,10 @@
 "use client"
-import {handleGitHubLogin, login} from "@/lib/actions";
+import { login} from "@/lib/actions";
 import {useFormState} from "react-dom"
 import styles from "./loginForm.module.css";
-import React, {useEffect} from "react";
+
 import {useRouter} from "next/navigation";
-import {error} from "next/dist/build/output/log";
+
 import Link from "next/link";
 
 const LoginForm = () => {

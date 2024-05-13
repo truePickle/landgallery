@@ -1,39 +1,16 @@
 .container {
     display: flex;
     gap: 100px;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
 }
+
 .textContainer{
     flex: 2;
     flex-direction: column;
     gap:50px;
 }
-.imgContainer {
-    flex:1;
-    background-color: var(--item-border);
-    width: 70%;
-    height: calc(100vh - 200px);
-    position: relative;
-    box-sizing: border-box;
-    border: 10px solid var(--item-border);
-}
-.img{
-    object-fit:contain;
-}
-.buyContainer{
-
-
-}
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.previewContainer {
-    flex: 1;
-    margin-right: 20px;
-}
-
 .detailsContainer {
     flex: 2;
 }

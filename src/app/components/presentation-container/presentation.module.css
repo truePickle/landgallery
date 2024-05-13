@@ -1,0 +1,38 @@
+.previewContainer {
+    display: grid;
+    grid-template-areas:
+    "arrowLeft imgContainer arrowRight"
+    "thumbnailContainer thumbnailContainer thumbnailContainer";
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 80%  20%;
+    height: 50rem;
+    width: 75%;
+    background-color: var(--bg-previewContainer);
+    justify-items: center;
+    align-items: center;
+}
+
+.imgContainer {
+    grid-area: imgContainer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex:1;
+    height: 90%;
+    width: 100%;
+}
+.RoomView {
+    width: 100%; /* Make RoomView fill the entire width of imgContainer */
+    height: 100%; /* Make RoomView fill the entire height of imgContainer */
+}
+.img{
+    object-fit:contain;
+}
+.thumbnailContainer {
+    grid-area: thumbnailContainer;
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    justify-content: center;
+
+}
