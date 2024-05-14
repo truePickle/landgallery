@@ -1,20 +1,118 @@
-.container {
-    display: flex;
-    gap: 100px;
-    justify-content: space-between;
-    align-items: flex-start;
+.preview {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+            "area-preview area-info"
+            "area-content area-info"
+    ;
+    gap: 2rem;
+    margin: 0 auto 6rem auto;
+    padding-bottom: .5rem;
+    grid-template-columns: minmax(0, 2.6666fr) minmax(0,1fr);
+}
+.areaPreview {
+    grid-area: area-preview;
     width: 100%;
 }
 
-.textContainer{
-    flex: 2;
-    flex-direction: column;
-    gap:50px;
-}
+
 .detailsContainer {
+    grid-area: area-info;
     flex: 2;
+}
+.content {
+
+
+        margin: auto;
+
+        padding-left: 50px;
+        padding-right: 50px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .content {
+        width: 95%;
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .content {
+        width: 95%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .content {
+        width: 95%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .content {
+        width: 95%;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .content {
+        width: 95%;
+    }
+}
+.sizes {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.sizes > div {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sizes > div:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+.size-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.size-item:hover {
+    background-color: #f0f0f0;
+}
+.size-item.selected {
+    background-color: #aaf;
+}
+
+.size-item.selected {
+    background-color: #aaf;
+}
 .sizeButtons {
     margin-top: 20px;
 }

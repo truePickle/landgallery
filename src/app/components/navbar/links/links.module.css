@@ -23,18 +23,27 @@
     }
     .mobileLinks {
         background-color: var(--bg-mobileLinks);
-        position: absolute;
+        position: fixed;
         right: 0;
-        width: 30%;
-        height: 30%;
+        top: 0; /* Added to align with the top */
+        width: calc(100% - 40px); /* Adjusted width to accommodate the menu button padding */
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 10px;
+        padding-top: 50px; /* Added to push content down to accommodate the menu button */
+        z-index: 1000;
     }
     .menuButton {
         display: block;
+        padding: 10px;
         cursor: pointer;
+        font-weight: bold;
+        position: absolute;
+        top: 0; /* Positioned at the top */
+        right: 0; /* Positioned at the right */
+        z-index: 1001;
     }
 }

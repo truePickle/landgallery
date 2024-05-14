@@ -19,14 +19,16 @@ const Links =  ({session}) =>{
         },
     ]
     const [open, setOpen] = useState(false)
-    //TEMPORARY
-
-    const isAdmin = true
+// Function to handle link click
+    const handleLinkClick = () => {
+        // Collapse the mobile links by setting open to false
+        setOpen(false);
+    };
     return(
         <div className={styles.container}>
         <div className={styles.links}>
             {links.map((link => (
-                <NavLink item={link} key = {link.title}/>
+                <NavLink item={link} key = {link.title} onClick = {handleLinkClick}/>
             )))}{
                 session?.user ? (
                     <>
@@ -46,7 +48,7 @@ const Links =  ({session}) =>{
             {
                 open && <div className={styles.mobileLinks}>
                     {links.map((link) => (
-                            <NavLink item={link} key = {link.title}/>
+                            <NavLink item={link} key = {link.title} onClick={handleLinkClick}/>
                         ))}
                 </div>
             }

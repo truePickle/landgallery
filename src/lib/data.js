@@ -1,10 +1,22 @@
-import {Item, User} from "@/lib/models";
+import {Author, Item, User} from "@/lib/models";
 import {connectToDb} from "@/lib/connectToDb";
 
 export const getItems = async () => {
     try {
         await connectToDb()
-        return await Item.find()
+        const items = await Item.find()
+        console.log(items)
+        return items
+
+    } catch (error) {
+        console.log(error)
+        throw new Error("Failed to fetch items!")
+    }
+}
+export const getItemsFromUser = async (userId) => {
+    try {
+        await connectToDb()
+        return await Item.find({ 'author.userId': userId })
     } catch (error) {
         console.log(error)
         throw new Error("Failed to fetch items!")
@@ -32,7 +44,15 @@ export const getUser = async (id) => {
         throw new Error("Failed to fetch user!")
     }
 }
-
+export const getAuthor = async (userId) => {
+    try {
+        await connectToDb()
+        return await Author.findById({userId: userId})
+    } catch (error) {
+        console.log(error)
+        throw new Error("Failed to fetch user!")
+    }
+}
 export const getUsers = async () => {
     try {
         await connectToDb()

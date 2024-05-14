@@ -1,10 +1,11 @@
 
 :root {
-  --bg: #f5f5dc;
+  --bg: #ffffff;
+  --bg-footer:#a9a9a9;
   --bg-mobileLinks: #b6b698;
   --bg-wrapper: #b6b698;
   --bg-btn:#a9a9a9;
-  --bg-previewContainer: #a9a9a9;
+  --bg-previewContainer: #b6b698;
   --text-color: #030303;
   --text-selected:#f5f5dc;
   --text-hover: #8764ff;

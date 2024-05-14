@@ -1,8 +1,7 @@
-.imageWrapper {
-    align-items: center;
-    justify-content: center;
-    height: 80%;
+.roomView {
+    height: 100%;
     width: 100%;
+    position: relative;
 }
 
 .artworkFull {
@@ -12,4 +11,25 @@
     background-size: contain; /* Изображение вписывается в размер контейнера */
     background-repeat: no-repeat; /* Предотвращает повторение фонового изображения */
     background-position: center; /* Центрирует фоновое изображение */
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.artwork {
+    height: 50%;
+    width: 50%;
+    position: absolute; /* Позиционирование абсолютное */
+    z-index: 2; /* На переднем плане */
+    background-size: contain;
+    background-repeat: no-repeat;
 }

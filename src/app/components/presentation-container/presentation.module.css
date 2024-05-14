@@ -6,7 +6,7 @@
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 80%  20%;
     height: 50rem;
-    width: 75%;
+    width: 100%;
     background-color: var(--bg-previewContainer);
     justify-items: center;
     align-items: center;
@@ -21,10 +21,7 @@
     height: 90%;
     width: 100%;
 }
-.RoomView {
-    width: 100%; /* Make RoomView fill the entire width of imgContainer */
-    height: 100%; /* Make RoomView fill the entire height of imgContainer */
-}
+
 .img{
     object-fit:contain;
 }
@@ -35,4 +32,21 @@
     gap: 8px;
     justify-content: center;
 
+}
+
+@media (max-width: 768px) {
+    .thumbnailContainer {
+        display: none;
+    }
+    .previewContainer {
+        height: 35rem;
+        width: 60%;
+        grid-template-rows: 100%;
+        grid-template-columns: 100%;
+        grid-template-areas: "imgContainer";
+    }
+    .imgContainer {
+        height: 80%;
+        width: 80%;
+    }
 }

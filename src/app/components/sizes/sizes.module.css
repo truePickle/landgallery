@@ -1,0 +1,26 @@
+/* Файл стилей styles.module.css */
+.container {
+    width: 100%;
+}
+
+.sizes {
+    margin-top: 10px;
+}
+
+.sizeButton {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.sizeButton:hover {
+    background-color: #f0f0f0;
+}
+
+.selected {
+    background-color: #0070f3; /* Цвет фона для выбранного элемента */
+    color: #fff; /* Цвет текста для выбранного элемента */
+    border-color: #0070f3; /* Цвет рамки для выбранного элемента */
+}

@@ -36,6 +36,7 @@ const RoomView = ({background, artwork}) => {
 
     return (
          <>{background ? (
+             <div className={styles.roomView}>
                  <svg viewBox="0 0 1056 639">
                      <filter id="shadow">
                          <feDropShadow dx="2" dy="2" stdDeviation="4" floodColor="#444444"></feDropShadow>
@@ -56,6 +57,7 @@ const RoomView = ({background, artwork}) => {
                          filter=""
                      ></image>
                  </svg>
+             </div>
              ) :
              (<div className={styles.artworkFull} style={{backgroundImage: `url(${artwork})`}}></div>)
 

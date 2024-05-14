@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Размещаем контент вверху */
+    padding: 20px;
+}
+
+.artist-info {
+
+    text-align: center; /* Выравниваем текст по центру */
+    margin-bottom: 20px; /* Добавляем небольшой отступ снизу */
+}
+
+.containerItem {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.item {
+    width: 30%;
+
+}
+
+@media screen and (max-width: 992px) {
+    .item {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .item {
+        width: 100%;
+    }
+}

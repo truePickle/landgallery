@@ -1,6 +1,6 @@
 import styles from "./homepage.module.css"
 import Item from "@/app/components/item/item";
-import {getItems} from "@/lib/data";
+import {getItem, getItems} from "@/lib/data";
 // TODO: Add metadata for better search results
 
 const getData = async ()=>{
@@ -13,11 +13,12 @@ const getData = async ()=>{
 const Homepage = async () => {
 
     const items = await getItems()
+    console.log(items)
     return(
         <div className={styles.container}>
             {items.map(item => (
                 <div className={styles.item} key ={item.id}>
-                    <Item item = {item}/>
+                    {item && <Item item = {item}/>}
                 </div>
             ))}
         </div>

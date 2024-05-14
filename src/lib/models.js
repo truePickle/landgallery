@@ -54,6 +54,9 @@ const userSchema = new mongoose.Schema({
     isArtist: {
         type: Boolean,
         default: false
+    },
+    aboutMe: {
+        type: String,
     }
 
 }, {timestamps: true})
@@ -72,6 +75,19 @@ const orderSchema = new mongoose.Schema({
         required: true
     }
 },{timestamps: true})
+const authorSchema = new mongoose.Schema({
+    userId:{
+        type: String,
+        required: true,
+    },
+    items: [{
+        item:{
+            type: String,
+            required: true,
+            unique: true
+        }
+    }]
+})
 const itemSchema = new mongoose.Schema({
     title:{
         type:String,
@@ -82,11 +98,19 @@ const itemSchema = new mongoose.Schema({
         type:String
     },
     author: {
-        type: String,
-        required: true,
+        type: {
+            username: {
+                type: String,
+                required: true
+            },
+            userId: {
+                type: String,
+                required: true
+            }
+        }
     },
-    availableItemSizes:{
-        itemSizes:[{
+    sizes:{
+        type:[{
             width: {
                 type: Number,
                 required: true
@@ -99,10 +123,8 @@ const itemSchema = new mongoose.Schema({
     },
     image: {
         type:String,
+        required:true
     },
-    images: [{
-        type:String,
-    }],
     slug:{
         type: String,
         required: true,
@@ -116,5 +138,6 @@ const itemSchema = new mongoose.Schema({
 
 export  const User = mongoose.models?.User || mongoose.model("User", userSchema)
 export  const Item = mongoose.models?.Item || mongoose.model("Item", itemSchema)
+export  const Author = mongoose.models?.Author || mongoose.model("Author", authorSchema)
 export  const Order = mongoose.models?.Order || mongoose.model("Order", orderSchema)
 export const Address = mongoose.models?.Address || mongoose.model("Address", addressSchema)
