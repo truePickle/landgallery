@@ -21,18 +21,34 @@
     flex: 2;
 }
 .content {
-
-
         margin: auto;
-
         padding-left: 50px;
         padding-right: 50px;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+}
+.otherProducts {
+    text-align: center;
+    align-items: center;
+}
 
+.artist {
+    margin-bottom: 20px; /* Отступ снизу */
+}
 
+.artist h2 {
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.artistPageLink {
+    text-decoration: underline; /* Подчеркивание ссылки */
+}
+.divider {
+    border: 1px solid rgb(128, 128, 128); /* Серый цвет линии */
+    width: 100%; /* Занимает всю доступную ширину */
+    margin: 3.5rem 0;
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -135,6 +151,8 @@
 }
 
 .buttonsContainer {
+    text-align: center;
+    width: 100%;
     margin-top: 20px;
 }
 

@@ -9,14 +9,18 @@ const Links =  ({session}) =>{
             title: "Homepage",
             path: "/"
         },
-        {
+        /*{
             title: "About",
             path: "/about"
-        },
+        },*/
         {
             title: "Contact",
             path: "/contact"
         },
+        {
+            title: "Galleries",
+            path:"/gallery"
+        }
     ]
     const [open, setOpen] = useState(false)
 // Function to handle link click

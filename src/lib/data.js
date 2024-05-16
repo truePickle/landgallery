@@ -1,4 +1,4 @@
-import {Author, Item, User} from "@/lib/models";
+import {Author, Gallery, Item, User} from "@/lib/models";
 import {connectToDb} from "@/lib/connectToDb";
 
 export const getItems = async () => {
@@ -13,6 +13,7 @@ export const getItems = async () => {
         throw new Error("Failed to fetch items!")
     }
 }
+
 export const getItemsFromUser = async (userId) => {
     try {
         await connectToDb()
@@ -34,7 +35,25 @@ export const getItem = async (slug) => {
         throw new Error("Failed to fetch item!")
     }
 }
+export const getGalleries = async () => {
+    try {
+        await connectToDb()
 
+        return await Gallery.find()
+    }  catch (error) {
+        console.log(error)
+        throw new Error("Failed to fetch galleries!")
+    }
+}
+export const getGallery = async (slug) => {
+    try {
+        await connectToDb()
+        return await Gallery.findOne({slug: slug})
+    }  catch (error) {
+        console.log(error)
+        throw new Error("Failed to fetch gallery by slug!")
+    }
+}
 export const getUser = async (id) => {
     try {
         await connectToDb()

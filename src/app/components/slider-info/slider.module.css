@@ -1,0 +1,24 @@
+.desc {
+    grid-template-areas:
+            "icon"
+            "text";
+    grid-template-rows: 3rem auto;
+    margin-bottom: 0.8rem ;
+    text-align: center;
+    width: 100%;
+    display: grid;
+
+}
+.text {
+    grid-area: text;
+    grid-row: 2;
+}
+.icons {
+    grid-area: icon;
+    width: 3rem; /* Ширина иконки */
+    height: 3rem; /* Автоматическая высота, чтобы сохранить соотношение сторон */
+    display: block; /* Для правильного выравнивания */
+    margin: 0 auto 1rem; /* Маржа снизу для отступа от текста */
+    position: relative;
+    grid-row: 1;
+}

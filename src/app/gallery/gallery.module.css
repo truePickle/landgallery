@@ -1,0 +1,23 @@
+.content {
+    display: grid;
+    grid-template-areas:
+            "imgageContainer"
+            "info";
+    grid-template-rows: 5rem auto;
+}
+.header{
+    grid-area: info;
+    text-align: center;
+}
+
+.imageContainer{
+    grid-area: imgageContainer;
+    height: .5rem;
+    width: 100%;
+}
+.standorte {
+
+}
+.img {
+    object-fit: contain;
+}
