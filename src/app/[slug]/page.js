@@ -73,12 +73,7 @@ const ProductDetail = async ({params}) => {
                         </div>
                     </div>
                     <hr className={styles.divider}></hr>
-                    {/*<div className={styles.otherRec}>
-                        {otherRec.map(item => (
-                            <Item item={item} key={item.id}/>
-                        ))}
-                    </div>
-                    <hr className={styles.divider}></hr>*/}
+
                     <section className={styles.infoOrder}>
                         <SliderComponent/>
                     </section>

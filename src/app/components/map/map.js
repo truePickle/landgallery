@@ -34,7 +34,8 @@ const MapComponent = () => {
         lat: 50.98302217730332 , lng: 10.34808888915953
     };
     const {isLoaded} = useJsApiLoader({
-        id: 'google-map-script', googleMapsApiKey: "AIzaSyBpoymvEhI2utEmFdAPujgfHW104HcuR5I"
+        id: 'google-map-script',
+        googleMapsApiKey: process.env.GOOGLE_MAPS_KEY
     })
     const options = {
         mapId: "91bf7877475265d3", mapTypeControl: false, fullscreenControl: false,
