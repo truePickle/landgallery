@@ -10,4 +10,5 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-docker image for the website is [`truepickle/landgalerie`](https://hub.docker.com/repository/docker/truepickle/landgalerie/general)
+docker image for the website is [`truepickle/landgalerie`](https://hub.docker.com/repository/docker/truepickle/landgalerie/general) 
+docker image includes .env file
